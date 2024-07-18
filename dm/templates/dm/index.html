@@ -3,9 +3,15 @@
 {% block content %}
     <h1>채팅방 목록</h1>
     <ul>
-        <li>
+        {% for room in room_list %}
+            <li>
             {# TODO: 채팅방 목록을 리스트로 보여주기 #}
-            <a href="{% url 'dm:room_dm' 'test' %}">테스트 채팅방 진입</a>
-        </li>
+                <a href="{% url 'dm:room_dm' room.pk %}">{{ room.name }}</a>
+            </li>
+        {% endfor %}
     </ul>
+
+    <a href="{% url 'dm:room_new' %}">
+        새 채팅방 만들기
+    </a>
 {% endblock %}
