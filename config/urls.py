@@ -22,5 +22,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('dm/', include('dm.urls')),
     path('', RedirectView.as_view(pattern_name="dm:index"), name="root"),
-    
 ]

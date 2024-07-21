@@ -7,5 +7,5 @@ from django.urls import path
 from dm import consumers
 
 websocket_urlpatterns = [
-    path("ws/dm/<str:room_pk>/dm/", consumers.DmConsumer.as_asgi()),
+    path("ws/dm/<str:user_id>/<str:player_id>/dm/", consumers.DmConsumer.as_asgi()),
 ]

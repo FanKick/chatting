@@ -26,8 +26,10 @@ application = ProtocolTypeRouter({
     # 서비스 규모에 따라 http와 websocket을 분리하여 (웹서버와 채팅서버)를 운영하기도 한다.
     # 장고의 urls include와 비슷한 역할 == URLRouter
     # URLRouter는 path리스트를 인자로 받는다.
-    "websocket": URLRouter(
-        dm.routing.websocket_urlpatterns
+    "websocket": AuthMiddlewareStack(
+        URLRouter(
+            dm.routing.websocket_urlpatterns
+        )
     ),
 
 })

@@ -1,12 +1,12 @@
 {% extends "dm/base.html" %}
 
 {% block content %}
-    <h1>채팅방 목록</h1>
+    <h1>선수 목록</h1>
     <ul>
-        {% for room in room_list %}
+        {% for player in players_list %}
             <li>
-            {# TODO: 채팅방 목록을 리스트로 보여주기 #}
-                <a href="{% url 'dm:room_dm' room.pk %}">{{ room.name }}</a>
+            {# TODO: 선수 목록을 리스트로 보여주기 #}
+                <a href="{% url 'dm:player_dm' user_id player.0 %}">{{ player.1 }}</a>
             </li>
         {% endfor %}
     </ul>
