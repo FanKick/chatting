@@ -27,7 +27,7 @@
 
 {% block content %}
     {# TODO: 웹소켓으로 실시간 채팅 기능 구현하기 #}
-
+<h1> 선수용 </h1>
     <div class="container my-5">
         <div class="row">
             <div class="col-sm-12">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <hr class="my-3" />
-            <a href="{% url 'dm:be_subscribed_players_index' user_id %}" class="btn btn-primary">대기실로 이동</a>
+            <a href=# class="btn btn-primary">대기실로 이동</a>
         </div>
     </div>
 {% endblock %}
@@ -162,10 +162,10 @@ const handlers = {
 };
 
 handlers.init();
-
+const player_id = "{{ player_id }}";
 const protocol = location.protocol === "http:" ? "ws:" : "wss:";
-//const ws_url = protocol + "//" + location.host + "/ws/dm/" + "1" + "/dm/";
-const ws_url = protocol + "//" + location.host + "/ws" + location.pathname + "/";
+const ws_url = protocol + "//" + location.host + "/ws/dm/" + "player/" + player_id + "/";
+//const ws_url = protocol + "//" + location.host + "/ws" + location.pathname;
 handlers.connect(ws_url);
 </script>
 {% endblock %}

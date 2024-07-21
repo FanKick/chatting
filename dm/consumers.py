@@ -94,15 +94,19 @@ class DmConsumer(JsonWebsocketConsumer):
             )
     # 단일 클라이언트로부터 메세지를 받으면 호출
     def receive_json(self, content, **kwargs):
+        user = self.scope['cookies']['ajs_anonymous_id']
+
         _type = content["type"]
 
         if _type == "dm.message":
             message = content["message"]
+            sender = user
             async_to_sync(self.channel_layer.group_send)(
                 self.group_name,
                 {
                     "type": "dm.message",
                     "message": message,
+                    "sender" : sender,
                 }
             )
         else:
@@ -113,4 +117,5 @@ class DmConsumer(JsonWebsocketConsumer):
         self.send_json({
             "type": "dm.message",
             "message": message_dict["message"],
+            "sender" : message_dict["sender"],
         })

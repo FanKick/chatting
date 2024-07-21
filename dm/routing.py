@@ -8,4 +8,5 @@ from dm import consumers
 
 websocket_urlpatterns = [
     path("ws/dm/<str:user_id>/<str:player_id>/dm/", consumers.DmConsumer.as_asgi()),
+    path("ws/dm/player/<str:player_id>/", consumers.DmConsumer.as_asgi()),
 ]

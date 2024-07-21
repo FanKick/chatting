@@ -36,11 +36,11 @@ def room_new(request):
 # user_id를 통한 구독 선수 목록 리스트
 def be_subscribed_players_index(request, user_id):
     with connection.cursor() as cursor:
-        # 해당 유저(user_id)가 구독한 선수들의 id 목록
+        # 해당 유저(user_id)가 구독한 선수들의 id (player 테이블의 id) 목록
         cursor.execute("SELECT subscribed_to_player_id FROM subscriptions_subscription WHERE subscriber_id = %s", [user_id])
         be_subscribed_players_ids = [item[0] for item in cursor.fetchall()]
 
-        # 선수들의 id로 선수들의 id와 이름을 조회
+        # 선수들의 id(player테이블의 id)로 선수들의 id(player테이블의 id)와 이름을 조회
         cursor.execute("SELECT id, player_name FROM accounts_player WHERE id IN %s", [tuple(be_subscribed_players_ids)])
         players_id_name = cursor.fetchall() # fetchall의 결과는 튜플의 리스트로 반환되므로 다음과 같이 형변환
 
@@ -56,3 +56,13 @@ def player_dm(request: HttpRequest, user_id: str, player_id: str) -> HttpRespons
         'player_id': player_id,
     }
     return render(request, 'dm/room_dm.html', context)
+
+def player_room(request: HttpRequest, user_id: str):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT id FROM accounts_player WHERE user_id = %s", [user_id])
+        user_id_to_player_id = str(cursor.fetchall()[0][0])
+    context = {
+        'user_id' : user_id,
+        'player_id' : user_id_to_player_id,
+    }
+    return render(request, 'dm/player_room_dm.html', context)
