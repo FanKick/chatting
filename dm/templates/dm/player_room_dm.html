@@ -156,6 +156,8 @@ function getOrCreateClientId() {
                 type: "dm.message",
                 message: message,
                 sender: this.clientId,
+                is_player: true,
+                is_fan : false,
             }))
         }
     };
