@@ -1,0 +1,288 @@
+.main-content .user-info-container {
+  background: #E0E0E0;
+  display: flex; /* Use Flexbox */
+  justify-content:center; /* Align items to the start */
+  gap: 50px; /* Add gap between sidebar and content */
+  padding: 100px 200px;
+}
+
+.user-info-sidebar {
+  width: 400px; /* Adjust width as needed */
+  background: #E0E0E0;
+  padding: 15px;
+}
+
+/*사이드바 */
+.user-info-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-info-menu li {
+  margin-bottom: 10px; /* Add some spacing between buttons */
+}
+
+/* 회원정보 버튼 스타일 */
+.btn-user-info,
+.btn-subscription,
+.btn-community
+ {
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000;
+  background: #FFFFFF;
+  padding: 10px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 70px;
+  gap: 10px;
+}
+
+/* ... existing code ... */
+
+.btn-user-info:hover,
+.btn-subscription:hover,
+.btn-community:hover {
+  color:#006600; /* Change text color to blue on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* ... existing code ... */
+
+.btn-user-info i,
+.btn-subscription i,
+.btn-community i {
+  margin-right: 10px; /* Add margin to the right of the icon */
+}
+
+/*회원정보수정*/
+.user-info-content {
+  flex-grow: 1;
+  padding: 50px 100px; /* Add padding to the left and right */
+  background: #FFFFFF;
+  border-radius: 8px;
+  display: flex; /* Add Flexbox */
+  flex-direction: column; /* Ensure content stacks vertically */
+}
+
+.user-info-content h2 {
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 25px; /* identical to box height, or 125% */
+  color: #171A1F;
+}
+
+.profile-section,
+.email-section,
+.username-section,
+.phone-section,
+.password-section {
+  margin-bottom: 20px; /* Add bottom margin to each section */
+}
+
+.profile-section h3,
+.email-section h3,
+.username-section h3,
+.phone-section h3,
+.password-section h3 {
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 30px; /* identical to box height, or 125% */
+  color: #171A1F;
+  margin-top: 10px;
+  margin-bottom: 5px; /* Adjust the bottom margin to control spacing */
+}
+
+.password-section .form-inline {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-pic {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.hidden {
+  display: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  font-family: 'Pretendard GOV Variable';
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.custom-file-upload:hover {
+  background-color: #f0f0f0;
+}
+
+.btn {
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  text-decoration-line: underline;
+  color: #006600;
+  background-color: transparent; /* Remove background color */
+  border: none; /* Remove border */
+  cursor: pointer; /* Add pointer cursor */
+  margin-left: 20px;
+  outline: none; /* Remove outline */
+}
+
+.btn:hover{
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  text-decoration-line: underline;
+  color: #3aa03a;
+  background-color: transparent; /* Remove background color */
+  border: none; /* Remove border */
+}
+
+.user-email {
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px; /* Adjust line height for better readability */
+  color: #333; /* Text color */
+  text-decoration-line: underline;
+}
+
+.username-section label,
+.phone-section label {
+  display: none;
+}
+
+.password-section input[type="password"] {
+  width: 150px; /* Adjust the width as needed */
+  max-width: 100%; /* Ensure it doesn't exceed the container's width */
+  padding: 8px; /* Optional: Add padding for better appearance */
+  border: 1px solid #ccc; /* Optional: Add border */
+  border-radius: 4px; /* Optional: Add border radius */
+}
+
+.delete-account-section {
+  display: flex; /* Use Flexbox */
+  justify-content: flex-end; /* Align items to the right */
+  position: relative;
+}
+
+.btn-danger {
+  box-sizing: border-box;
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  background-color: #ffffff;
+  color : #EA3838;
+  cursor: pointer; /* Add pointer cursor */
+  margin-left: auto; /* Align to the right */
+  border: 1px solid #EA3838;
+  border-radius: 8px;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+  padding: 8px;
+}
+
+.btn-danger:hover {
+  color: #ffffff; /* Show text color on hover */
+  background-color: #EA3838;
+  box-sizing: border-box;
+  font-family: 'Pretendard GOV Variable';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+
+
+/* 모달 창 스타일 */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  font-family: 'Pretendard GOV Variable';
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px; /* Maximum width */
+  border-radius: 8px;
+  text-align: center;
+}
+
+.close {
+  color: #070707;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  font-family: 'Pretendard GOV Variable';
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #bbb;
+  color: #000;
+}

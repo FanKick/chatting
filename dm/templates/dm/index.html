@@ -1,17 +1,35 @@
-{% extends "dm/base.html" %}
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block extra-style %}
+
+<link rel="stylesheet" href="{% static 'css/payments/payment.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+{% endblock extra-style %}
 
 {% block content %}
-    <h1>선수 목록</h1>
-    <ul>
-        {% for player in players_list %}
-            <li>
-            {# TODO: 선수 목록을 리스트로 보여주기 #}
-                <a href="{% url 'dm:player_dm' user_id player.0 %}">{{ player.1 }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-
-    <a href="{% url 'dm:room_new' %}">
-        새 채팅방 만들기
-    </a>
+<div class="player-section">
+    <div class="section-title"><h2>내가 구독한 선수</h2></div>
+    {% for player in players %}
+        <div class="player-item">
+            <a href="{% url 'dm:player_dm' user_id player.id %}">
+            {% if player.subscribed_to_player.user.profile %}
+                <img class="player-image" src="{{ player.subscribed_to_player.user.profile.url }}" alt="{{ player.subscribed_to_player.player_name }}">
+            {% else %}
+                <img class="player-image" src="/path/to/default-player-image.jpg" alt="Default player image">
+            {% endif %}
+            </a>
+            <img class="team-logo" src="{{ player.subscribed_to_player.team.team_picture.url }}" alt="{{ player.subscribed_to_player.team.team_name }}">
+            <div class="player-info">
+                <p>{{ player.subscribed_to_player.team.team_name }}</p>
+                <h3>{{ player.subscribed_to_player.player_name }}</h3>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
+
+
+

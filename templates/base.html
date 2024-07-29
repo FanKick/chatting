@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Fan Kick{% endblock title %}</title>
+    
+    {% block extra-style %}{% endblock extra-style %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body>
+    <header>
+        {% include 'header.html' %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+
+    {% block extra-script %} {% endblock extra-script %}
+
+</body>
+</html>

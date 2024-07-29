@@ -3,6 +3,10 @@
 
 {% block extra-style %}
 <style>
+.frame {
+    border-radius: 50%;
+}
+
 .chat-player {
   background-color: #ffffff;
   display: flex;
@@ -29,7 +33,7 @@
 
 .chat-player .container {
   position: absolute;
-  border: 2px solid black;
+
   width: 728px;
   height: 68px;
   top: 832px;
@@ -110,7 +114,7 @@
 
 .chat-player .container-3 {
   position: absolute;
-  border: 2px solid black;
+
   width: 728px;
   height: 748px;
   top: 84px;
@@ -291,7 +295,7 @@
 
 .chat-player .index {
   left: 0;
-  border: 3px solid green;
+
   position: absolute;
   width: 72px;
   height: 900px;
@@ -400,8 +404,8 @@
     <div class="div">
       <div class="message">
         <div class="container-2">
-          <img class="frame" src="{% static 'img/player-image.png' %}" />
-          <div class="div-wrapper"><div class="text-wrapper-2">{{ player_id }}</div></div>
+          <img class="frame" src="{{ player.user.profile.url }}" />
+          <div class="div-wrapper"><div class="text-wrapper-2">{{ player.player_name }}</div></div>
         </div>
         <div class="container-3" id="chat_messages">
           <!-- 메시지들이 여기에 동적으로 추가됩니다 -->
