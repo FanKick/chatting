@@ -1,10 +1,491 @@
 {% extends "dm/base.html" %}
+{% load static %}
 
 {% block extra-style %}
 <style>
+.chat-fan {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.chat-fan .div {
+  background-color: #ffffff;
+  width: 1156px;
+  height: 900px;
+  position: relative;
+}
+
+.chat-fan .message {
+  position: absolute;
+  width: 744px;
+  height: 900px;
+  top: 0;
+  left: 412px;
+}
+
+.chat-fan .container {
+  position: absolute;
+  width: 728px;
+  height: 68px;
+  top: 832px;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.chat-fan .textbox {
+  position: absolute;
+  width: 643px;
+  height: 43px;
+  top: 12px;
+  left: 24px;
+  background-color: #f3f4f6;
+  border-radius: 100px;
+}
+
+.chat-fan .text-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #bcc1ca;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.chat-fan .icon-button {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 15px;
+  left: 674px;
+}
+
+.chat-fan .container-2 {
+  position: absolute;
+  width: 728px;
+  height: 748px;
+  top: 84px;
+  left: 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.chat-fan .div-wrapper {
+  position: absolute;
+  width: 287px;
+  height: 68px;
+  top: 245px;
+  left: 76px;
+  background-color: #f8f9fa;
+}
+
+.chat-fan .p {
+  position: absolute;
+  width: 255px;
+  top: 11px;
+  left: 16px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.chat-fan .container-3 {
+  position: absolute;
+  width: 312px;
+  height: 46px;
+  top: 337px;
+  left: 392px;
+  background-color: #f8f9fa;
+}
+
+.chat-fan .text-wrapper-2 {
+  position: absolute;
+  width: 280px;
+  top: 11px;
+  left: 16px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.chat-fan .image-wrapper {
+  position: absolute;
+  width: 321px;
+  height: 217px;
+  top: 24px;
+  left: 76px;
+  background-color: #f8f9fa;
+}
+
+.chat-fan .image {
+  position: absolute;
+  width: 289px;
+  height: 185px;
+  top: 16px;
+  left: 16px;
+}
+
+.chat-fan .avatar {
+  top: 24px;
+  left: 24px;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+}
+
+.chat-fan .img {
+  top: 473px;
+  left: 24px;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+}
+
+.chat-fan .text-wrapper-3 {
+  position: absolute;
+  top: 276px;
+  left: 381px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-fan .text-wrapper-4 {
+  position: absolute;
+  top: 480px;
+  left: 472px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-fan .container-4 {
+  position: absolute;
+  width: 380px;
+  height: 46px;
+  top: 463px;
+  left: 76px;
+  background-color: #f8f9fa;
+}
+
+.chat-fan .text-wrapper-5 {
+  position: absolute;
+  width: 356px;
+  top: 11px;
+  left: 12px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.chat-fan .text-wrapper-6 {
+  position: absolute;
+  top: 776px;
+  left: 661px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-fan .text-wrapper-7 {
+  position: absolute;
+  top: 350px;
+  left: 343px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-fan .text-wrapper-8 {
+  position: absolute;
+  top: 422px;
+  left: 327px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-fan .container-5 {
+  position: absolute;
+  width: 728px;
+  height: 84px;
+  top: 0;
+  left: 0;
+}
+
+.chat-fan .frame {
+  position: absolute;
+  width: 76px;
+  height: 74px;
+  top: 10px;
+  left: 0;
+}
+
+.chat-fan .frame-2 {
+  position: absolute;
+  width: 652px;
+  height: 74px;
+  top: 10px;
+  left: 76px;
+  background-color: #ffffff;
+}
+
+.chat-fan .text-wrapper-9 {
+  position: absolute;
+  top: 21px;
+  left: 26px;
+  font-family: "Pretendard GOV Variable-Bold", Helvetica;
+  font-weight: 700;
+  color: #171a1f;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.chat-fan .sub {
+  position: absolute;
+  width: 340px;
+  height: 900px;
+  top: 0;
+  left: 72px;
+}
+
+.chat-fan .text {
+  position: absolute;
+  width: 340px;
+  height: 84px;
+  top: 0;
+  left: 0;
+}
+
+.chat-fan .text-wrapper-10 {
+  position: absolute;
+  top: 23px;
+  left: 28px;
+  font-family: "Pretendard GOV Variable-Bold", Helvetica;
+  font-weight: 700;
+  color: #171a1f;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 36px;
+  white-space: nowrap;
+}
+
+.chat-fan .frame-3 {
+  position: absolute;
+  width: 340px;
+  height: 816px;
+  top: 84px;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.chat-fan .container-6 {
+  position: absolute;
+  width: 320px;
+  height: 80px;
+  top: 169px;
+  left: 10px;
+}
+
+.chat-fan .text-wrapper-11 {
+  position: absolute;
+  top: 15px;
+  left: 64px;
+  font-family: "Pretendard GOV Variable-Bold", Helvetica;
+  font-weight: 700;
+  color: #171a1f;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.chat-fan .text-wrapper-12 {
+  position: absolute;
+  top: 41px;
+  left: 64px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.chat-fan .text-wrapper-13 {
+  position: absolute;
+  top: 18px;
+  left: 253px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-fan .avatar-2 {
+  top: 22px;
+  left: 16px;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+}
+
+.chat-fan .container-7 {
+  position: absolute;
+  width: 320px;
+  height: 80px;
+  top: 251px;
+  left: 10px;
+}
+
+.chat-fan .text-wrapper-14 {
+  position: absolute;
+  top: 18px;
+  left: 252px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-fan .container-8 {
+  position: absolute;
+  width: 320px;
+  height: 80px;
+  top: 87px;
+  left: 10px;
+}
+
+.chat-fan .container-9 {
+  position: absolute;
+  width: 320px;
+  height: 80px;
+  top: 5px;
+  left: 10px;
+}
+
+.chat-fan .index {
+  position: absolute;
+  width: 72px;
+  height: 900px;
+  top: 0;
+  left: 0;
+}
+
+.chat-fan .collapsed-sidebar {
+  position: relative;
+  width: 48px;
+  height: 121px;
+  top: 23px;
+  left: 12px;
+}
+
+.chat-fan .overlap-group-wrapper {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 0;
+  left: 0;
+}
+
+.chat-fan .overlap-group {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  top: 5px;
+  left: 10px;
+}
+
+.chat-fan .f-chat {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: 5px;
+  left: 0;
+}
+
+.chat-fan .frame-4 {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 15px;
+  background-color: #006600;
+  border-radius: 8px;
+  border: 2px solid;
+  border-color: #ffffff;
+}
+
+.chat-fan .text-wrapper-15 {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 9px;
+  letter-spacing: 0;
+  line-height: 9px;
+  white-space: nowrap;
+}
+
+.chat-fan .frame-5 {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 73px;
+  left: 0;
+}
+
 .chat-message > div {
-    background-color: #3b3b3b;
-    color: #e1e1e1;
+    background-color: rgb(204, 204, 204);
+    color: #000000;
     border-radius: 0.8em;
     padding: 0.4em;
     margin: 0.4em 0;
@@ -14,42 +495,73 @@
     word-wrap: break-word;
 }
 
+
 .chat-message.me {
     text-align: right;
+    align-items: center; /* 세로 중앙 정렬 */
+    padding: 0.4em;
+    margin: 0.4em 0;
 }
+
 .chat-message.me > div {
-    background-color: #1f8cff;
+    background-color: green;
     color: #fff;
-    text-align: left;
+    text-align: right;
+}
+
+.timestamp {
+  display: block; /* 새 줄에 표시 */
+  font-size: 0.8em; /* 글자 크기 작게 */
+  color: #888; /* 글자 색상 변경 */
+  margin-top: 4px; /* 메시지와의 상단 간격 */
 }
 </style>
 {% endblock %}
 
 {% block content %}
-    {# TODO: 웹소켓으로 실시간 채팅 기능 구현하기 #}
+<div class="chat-fan">
+  <div class="div">
+    <div class="message">
+      <div class="container">
+        <form id="message_form">
 
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card" style="height: 600px;">
-                    <div class="card-header">
-                        채팅방 : {{ player_id }}
-                    </div>
-                    <div class="card-body overflow-hidden">
-                        <div id="chat_messages" class="w-100 h-100 border-0 overflow-scroll"></div>
-                    </div>
-                    <div class="card-footer">
-                        <form id="message_form">
-                            <input type="text" name="message" class="form-control"
-                                   autofocus autocomplete="off" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-3" />
-            <a href="{% url 'dm:be_subscribed_players_index' user_id %}" class="btn btn-primary">대기실로 이동</a>
-        </div>
+            <input type="text" class="textbox" name="message" placeholder="메시지를 입력해주세요." autofocus autocomplete="off">
+
+          <button type="submit" class="icon-button">
+            <img src="{% static 'img/send-icon.png' %}" alt="Send">
+          </button>
+        </form>
+      </div>
+      <div class="container-2" id="chat_messages">
+        <!-- 메시지들이 여기에 동적으로 추가됩니다 -->
+      </div>
+      <div class="container-5">
+        <img class="frame" src="{% static 'img/player-image.png' %}" />
+        <div class="frame-2"><div class="text-wrapper-9">{{ player_id }}</div></div>
+      </div>
     </div>
+    <div class="sub">
+      <div class="text"><div class="text-wrapper-10">메시지</div></div>
+      <div class="frame-3">
+        <!-- 여기에 채팅 목록을 동적으로 추가할 수 있습니다 -->
+         
+      </div>
+    </div>
+    <div class="index">
+      <div class="collapsed-sidebar">
+        <div class="overlap-group-wrapper">
+          <div class="overlap-group">
+            <img class="f-chat" src="{% static 'img/chat-icon.png' %}" />
+            <div class="frame-4"><div class="text-wrapper-15">N</div></div>
+          </div>
+        </div>
+        <a href="http://192.168.0.8:8000/subscriptions/unsubscribed_players/">
+          <img class="frame-5" src="{% static 'img/player-rec-icon.png' %}" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block extra-script %}
@@ -140,6 +652,12 @@ function getOrCreateClientId() {
             const wrapper = document.createElement("div");
             wrapper.textContent = message;
             element.appendChild(wrapper);
+
+            const timestamp = document.createElement("div");
+            timestamp.className = "timestamp";
+            timestamp.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            element.appendChild(timestamp);
+
             this.chat_messages_tag.appendChild(element);
             this.chat_messages_tag.scrollTop = this.chat_messages_tag.scrollHeight;
         },

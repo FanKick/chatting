@@ -3,6 +3,7 @@ from django.http import HttpRequest, HttpResponse
 from django.db import connection
 from dm.forms import RoomForm
 from dm.models import Room
+from django.http import JsonResponse
 
 # Create your views here.
 def dm_page(request):
@@ -33,6 +34,9 @@ def room_new(request):
     return render(request, "dm/room_form.html", {
         "form": form,
     })
+
+
+
 # user_id를 통한 구독 선수 목록 리스트
 def be_subscribed_players_index(request, user_id):
     with connection.cursor() as cursor:
@@ -66,3 +70,12 @@ def player_room(request: HttpRequest, user_id: str):
         'player_id' : user_id_to_player_id,
     }
     return render(request, 'dm/player_room_dm.html', context)
+
+
+def load_chat(request, player_id):
+    player = get_object_or_404(Player, id=player_id)
+    chat_messages = ChatMessage.objects.filter(player=player)
+    # 채팅 메시지와 프로필 사진을 HTML로 렌더링
+    chat_messages_html = render_to_string('dm/chat_messages.html', {'chat_messages': chat_messages})
+    player_image_url = player.image.url
+    return JsonResponse({'chat_messages': chat_messages_html, 'player_image': player_image_url})

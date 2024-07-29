@@ -1,10 +1,367 @@
 {% extends "dm/base.html" %}
+{% load static %}
 
 {% block extra-style %}
 <style>
+.chat-player {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.chat-player .div {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  width: 872px;
+  height: 900px;
+  position: relative;
+}
+
+.chat-player .message {
+  position: absolute;
+  width: 744px;
+  height: 900px;
+  top: 0;
+  left: 144px;
+}
+
+.chat-player .container {
+  position: absolute;
+  border: 2px solid black;
+  width: 728px;
+  height: 68px;
+  top: 832px;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.chat-player .textbox {
+  position: absolute;
+  width: 643px;
+  height: 43px;
+  top: 12px;
+  left: 24px;
+  background-color: #f3f4f6;
+  border-radius: 100px;
+}
+
+.chat-player .text-wrapper {
+  top: 10px;
+  left: 12px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #bcc1ca;
+  font-size: 16px;
+  line-height: 22px;
+  position: absolute;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.chat-player .icon-button {
+  position: absolute;
+  
+  width: 36px;
+  height: 36px;
+  top: 15px;
+  left: 674px;
+}
+
+.chat-player .container-2 {
+  position: absolute;
+
+  width: 728px;
+  height: 84px;
+  top: 0;
+  left: 0;
+}
+
+.chat-player .frame {
+  position: absolute;
+  width: 76px;
+  height: 74px;
+  top: 10px;
+  left: 0;
+}
+
+.chat-player .div-wrapper {
+  position: absolute;
+  width: 652px;
+  height: 74px;
+  top: 10px;
+  left: 76px;
+  background-color: #ffffff;
+}
+
+.chat-player .text-wrapper-2 {
+  top: 21px;
+  left: 26px;
+  font-family: "Pretendard GOV Variable-Bold", Helvetica;
+  font-weight: 700;
+  color: #171a1f;
+  font-size: 20px;
+  line-height: 30px;
+  position: absolute;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.chat-player .container-3 {
+  position: absolute;
+  border: 2px solid black;
+  width: 728px;
+  height: 748px;
+  top: 84px;
+  left: 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.chat-player .container-4 {
+  position: absolute;
+  width: 287px;
+  height: 68px;
+  top: 59px;
+  left: 42px;
+  background-color: #f8f9fa;
+}
+
+.chat-player .p {
+  position: absolute;
+  width: 255px;
+  top: 11px;
+  left: 16px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.chat-player .container-5 {
+  position: absolute;
+  width: 312px;
+  height: 46px;
+  top: 317px;
+  left: 395px;
+  background-color: #f8f9fa;
+}
+
+.chat-player .text-wrapper-3 {
+  position: absolute;
+  width: 280px;
+  top: 11px;
+  left: 16px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.chat-player .text-wrapper-4 {
+  position: absolute;
+  top: 93px;
+  left: 351px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-player .text-wrapper-5 {
+  position: absolute;
+  top: 776px;
+  left: 661px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-player .text-wrapper-6 {
+  top: 330px;
+  position: absolute;
+  left: 346px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-player .text-wrapper-7 {
+  top: 402px;
+  left: 325px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  line-height: 20px;
+  position: absolute;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.chat-player .text-wrapper-8 {
+  position: absolute;
+  top: 23px;
+  left: 24px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.chat-player .text-wrapper-9 {
+  position: absolute;
+  top: 236px;
+  left: 351px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-player .text-wrapper-10 {
+  position: absolute;
+  width: 255px;
+  top: 213px;
+  left: 58px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.chat-player .text-wrapper-11 {
+  position: absolute;
+  top: 166px;
+  left: 24px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.chat-player .container-6 {
+  position: absolute;
+  width: 312px;
+  height: 46px;
+  top: 435px;
+  left: 395px;
+  background-color: #f8f9fa;
+}
+
+.chat-player .text-wrapper-12 {
+  top: 448px;
+  position: absolute;
+  left: 346px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #171a1f;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.chat-player .index {
+  left: 0;
+  border: 3px solid green;
+  position: absolute;
+  width: 72px;
+  height: 900px;
+  top: 0;
+}
+
+.chat-player .collapsed-sidebar {
+  position: relative;
+  width: 48px;
+  height: 121px;
+  top: 23px;
+  left: 12px;
+}
+
+.chat-player .overlap-group-wrapper {
+  height: 48px;
+}
+
+.chat-player .overlap-group {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  top: 5px;
+  left: 10px;
+}
+
+.chat-player .f-chat {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: 5px;
+  left: 0;
+}
+
+.chat-player .frame-2 {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 15px;
+  background-color: #006600;
+  border-radius: 8px;
+  border: 2px solid;
+  border-color: #ffffff;
+}
+
+.chat-player .text-wrapper-13 {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  font-family: "Pretendard GOV Variable-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 9px;
+  letter-spacing: 0;
+  line-height: 9px;
+  white-space: nowrap;
+}
+
+.chat-player .img {
+  left: 72px;
+  position: absolute;
+  width: 72px;
+  height: 900px;
+  top: 0;
+}
+
 .chat-message > div {
-    background-color: #3b3b3b;
-    color: #e1e1e1;
+    background-color: rgb(204, 204, 204);
+    color: #000000;
     border-radius: 0.8em;
     padding: 0.4em;
     margin: 0.4em 0;
@@ -14,160 +371,179 @@
     word-wrap: break-word;
 }
 
+
 .chat-message.me {
     text-align: right;
+    align-items: center; /* 세로 중앙 정렬 */
+    padding: 0.4em;
+    margin: 0.4em 0;
 }
+
 .chat-message.me > div {
-    background-color: #1f8cff;
+    background-color: green;
     color: #fff;
-    text-align: left;
+    text-align: right;
+}
+
+.timestamp {
+  display: block; /* 새 줄에 표시 */
+  font-size: 0.8em; /* 글자 크기 작게 */
+  color: #888; /* 글자 색상 변경 */
+  margin-top: 4px; /* 메시지와의 상단 간격 */
 }
 </style>
 {% endblock %}
 
 {% block content %}
-    {# TODO: 웹소켓으로 실시간 채팅 기능 구현하기 #}
-<h1> 선수용 </h1>
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card" style="height: 600px;">
-                    <div class="card-header">
-                        채팅방 : {{ player_id }}
-                    </div>
-                    <div class="card-body overflow-hidden">
-                        <div id="chat_messages" class="w-100 h-100 border-0 overflow-scroll"></div>
-                    </div>
-                    <div class="card-footer">
-                        <form id="message_form">
-                            <input type="text" name="message" class="form-control"
-                                   autofocus autocomplete="off" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-3" />
-            <a href=# class="btn btn-primary">대기실로 이동</a>
+<h1>선수용</h1>
+<div class="chat-player">
+    <div class="div">
+      <div class="message">
+        <div class="container-2">
+          <img class="frame" src="{% static 'img/player-image.png' %}" />
+          <div class="div-wrapper"><div class="text-wrapper-2">{{ player_id }}</div></div>
         </div>
+        <div class="container-3" id="chat_messages">
+          <!-- 메시지들이 여기에 동적으로 추가됩니다 -->
+        </div>
+        <form id="message_form" class="container">
+          
+            <input type="text" class="textbox" name="message" placeholder="메시지를 입력해주세요." autofocus autocomplete="off">
+          
+          <button type="submit" class="icon-button">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 1L10 12M21 1L14 21L10 12M21 1L1 8L10 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <div class="index">
+        <div class="collapsed-sidebar">
+          <div class="overlap-group-wrapper">
+            <div class="overlap-group">
+              <img class="f-chat" src="{% static 'img/chat-icon.png' %}" />
+              <div class="frame-2"><div class="text-wrapper-13">N</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 {% endblock %}
 
 {% block extra-script %}
 <script>
 function getOrCreateClientId() {
     let clientId = localStorage.getItem('clientId');
-    // if (!clientId) {
-    //     clientId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    //         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    //         return v.toString(16);
-    //     });
-    //     localStorage.setItem('clientId', clientId);
-    // }
     return clientId;
 }
-    
-    const handlers = {
-        chat_messages_tag: null,
-        ws: null,
-        retry: 0,
-        clientId: null,
-    
-        init() {
-            this.chat_messages_tag = document.querySelector("#chat_messages");
-            document.querySelector("#message_form")
-                .addEventListener("submit", this.onsubmit.bind(this));
-            this.clientId = getOrCreateClientId();
-            document.cookie = `client_id=${this.clientId}; path=/; SameSite=Strict`;
-        },
-        connect(ws_url) {
-            if(this.ws) this.ws.close();
-            
-            this.ws = new WebSocket(ws_url || this.ws?.url);
-    
-            this.ws.onopen = this.onopen.bind(this);
-            this.ws.onclose = this.onclose.bind(this);
-            this.ws.onerror = this.onerror.bind(this);
-            this.ws.onmessage = this.onmessage.bind(this);
-        },
-        reconnect() {
-            this.connect();
-        },
-        onopen() {
-            console.log("웹소켓 서버와 접속");
-            this.retry = 0;
-        },
-        onclose(event) {
-            if(!event.wasClean) {
-                console.error("웹소켓 서버가 죽었거나, 네트워크 장애입니다.");
-                if(this.retry < 3) {
-                    this.retry += 1;
-                    setTimeout(() => {
-                        this.reconnect();
-                        console.log(`[${this.retry}] 접속 재시도 ...`);
-                    }, 1000 * this.retry)
-                }
-                else {
-                    console.log("웹소켓 서버에 접속할 수 없습니다. 대기실로 이동합니다.");
-                    window.location.href = "{% url 'dm:index' %}";
-                }
-            }
-        },
-        onerror() {
-            console.log("웹소켓 에러가 발생했습니다. 대기실로 이동합니다.");
-            window.location.href = "{% url 'dm:index' %}";
-        },
-        onmessage(event) {
-            const message_json = event.data;
-            console.log("메세지 수신 :", message_json);
-    
-            const { type, message, sender } = JSON.parse(message_json);
-            switch(type) {
-                case "dm.message":
-                    this.append_message(message, sender);
-                    break;
-                default:
-                    console.error(`Invalid message type : ${type}`);
-            }
-        },
-        append_message(message, sender) {
-            const element = document.createElement("div");
-            element.className = "chat-message";
-    
-            if (sender === this.clientId) {
-                element.className += " me";
-            }
-    
-            const wrapper = document.createElement("div");
-            wrapper.textContent = message;
-            element.appendChild(wrapper);
-            this.chat_messages_tag.appendChild(element);
-            this.chat_messages_tag.scrollTop = this.chat_messages_tag.scrollHeight;
-        },
-    
-        onsubmit(event) {
-            event.preventDefault();
-            const form_data = new FormData(event.target);
-            const props = Object.fromEntries(form_data);
-            event.target.reset();
-            const { message } = props;
-            console.log("웹소켓으로 전송할 메세지 :", message);
-    
-            this.ws.send(JSON.stringify({
-                type: "dm.message",
-                message: message,
-                sender: this.clientId,
-                is_player: true,
-                is_fan : false,
-            }))
-        }
-    };
 
+const handlers = {
+    chat_messages_tag: null,
+    ws: null,
+    retry: 0,
+    clientId: null,
+
+    init() {
+        this.chat_messages_tag = document.querySelector("#chat_messages");
+        document.querySelector("#message_form")
+            .addEventListener("submit", this.onsubmit.bind(this));
+        this.clientId = getOrCreateClientId();
+        document.cookie = `client_id=${this.clientId}; path=/; SameSite=Strict`;
+    },
+    connect(ws_url) {
+        if(this.ws) this.ws.close();
+        
+        this.ws = new WebSocket(ws_url || this.ws?.url);
+
+        this.ws.onopen = this.onopen.bind(this);
+        this.ws.onclose = this.onclose.bind(this);
+        this.ws.onerror = this.onerror.bind(this);
+        this.ws.onmessage = this.onmessage.bind(this);
+    },
+    reconnect() {
+        this.connect();
+    },
+    onopen() {
+        console.log("웹소켓 서버와 접속");
+        this.retry = 0;
+    },
+    onclose(event) {
+        if(!event.wasClean) {
+            console.error("웹소켓 서버가 죽었거나, 네트워크 장애입니다.");
+            if(this.retry < 3) {
+                this.retry += 1;
+                setTimeout(() => {
+                    this.reconnect();
+                    console.log(`[${this.retry}] 접속 재시도 ...`);
+                }, 1000 * this.retry)
+            }
+            else {
+                console.log("웹소켓 서버에 접속할 수 없습니다. 대기실로 이동합니다.");
+                window.location.href = "{% url 'dm:index' %}";
+            }
+        }
+    },
+    onerror() {
+        console.log("웹소켓 에러가 발생했습니다. 대기실로 이동합니다.");
+        window.location.href = "{% url 'dm:index' %}";
+    },
+    onmessage(event) {
+        const message_json = event.data;
+        console.log("메세지 수신 :", message_json);
+
+        const { type, message, sender } = JSON.parse(message_json);
+        switch(type) {
+            case "dm.message":
+                this.append_message(message, sender);
+                break;
+            default:
+                console.error(`Invalid message type : ${type}`);
+        }
+    },
+    append_message(message, sender) {
+        const element = document.createElement("div");
+        element.className = "chat-message";
+
+        if (sender === this.clientId) {
+            element.className += " me";
+        }
+
+        const wrapper = document.createElement("div");
+        wrapper.textContent = message;
+        element.appendChild(wrapper);
+
+        const timestamp = document.createElement("div");
+        timestamp.className = "timestamp";
+        timestamp.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        element.appendChild(timestamp);
+
+        this.chat_messages_tag.appendChild(element);
+        this.chat_messages_tag.scrollTop = this.chat_messages_tag.scrollHeight;
+    },
+
+    onsubmit(event) {
+        event.preventDefault();
+        const form_data = new FormData(event.target);
+        const props = Object.fromEntries(form_data);
+        event.target.reset();
+        const { message } = props;
+        console.log("웹소켓으로 전송할 메세지 :", message);
+
+        this.ws.send(JSON.stringify({
+            type: "dm.message",
+            message: message,
+            sender: this.clientId,
+            is_player: true,
+            is_fan : false,
+        }))
+    }
+};
 
 handlers.init();
 const player_id = "{{ player_id }}";
 const protocol = location.protocol === "http:" ? "ws:" : "wss:";
 const ws_url = protocol + "//" + location.host + "/ws/dm/" + "player/" + player_id + "/";
-//const ws_url = protocol + "//" + location.host + "/ws" + location.pathname;
 handlers.connect(ws_url);
 </script>
 {% endblock %}
